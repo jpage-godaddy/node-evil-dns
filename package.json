@@ -7,7 +7,7 @@
     "test": "mocha -R spec ./tests"
   },
   "engines": {
-    "node" : ">=0.12"
+    "node": ">=0.12"
   },
   "repository": {
     "type": "git",
@@ -36,12 +36,11 @@
       "url": "https://github.com/JamesHight/node-evil-dns/blob/master/LICENSE"
     }
   ],
-  "dependencies": {},
   "bugs": {
     "url": "https://github.com/JamesHight/node-evil-dns/issues"
   },
   "devDependencies": {
     "chai": "^2.1.0",
-    "mocha": "^2.1.0"
+    "mocha": "^10.4.0"
   }
 }

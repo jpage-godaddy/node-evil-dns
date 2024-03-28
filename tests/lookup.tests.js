@@ -25,6 +25,18 @@ describe('The method hijacking dns.lookup', function () {
     }
   });
 
+  it('handles queries with the "all" flag', function (done) {
+    evilDNS.add('example.com', '1.2.3.4');
+    dns.lookup('example.com', { all: true }, function (err, addresses) {
+      expect(addresses).to.be.instanceOf(Array);
+      expect(addresses).to.have.lengthOf(1);
+      const [{ address, family }] = addresses;
+      expect(address).to.equal('1.2.3.4');
+      expect(family).to.equal(4);
+      done();
+    });
+  });
+
   afterEach(function () {
     evilDNS.clear();
   });
