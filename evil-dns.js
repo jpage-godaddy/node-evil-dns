@@ -15,8 +15,8 @@ dns.lookup = function(domain, options, callback) {
 		options = {};
 	} 
 
-  var family = (typeof(options) === 'object') ? options.family : options;
-  if (family) {
+	var family = (typeof(options) === 'object') ? options.family : options;
+	if (family) {
 		family = +family;
 		if (family !== 4 && family !== 6) {
 			throw new Error('invalid argument: `family` must be 4 or 6');
@@ -26,11 +26,11 @@ dns.lookup = function(domain, options, callback) {
 	for (i = 0; i < domains.length; i++) {
 		var entry = domains[i];
 		if (domain.match(entry.domain) && (!family || family === entry.family)) {
-      return process.nextTick(
-        options.all
-          ? () => callback(null, [{ address: entry.ip, family: entry.family }])
-          : () => callback(null, entry.ip, entry.family)
-      );
+			return process.nextTick(
+				options.all
+					? () => callback(null, [{ address: entry.ip, family: entry.family }])
+					: () => callback(null, entry.ip, entry.family)
+			);
 		}
 	}
 
@@ -80,7 +80,7 @@ function remove(domain, ip) {
 
 	for (i = 0; i < domains.length; i++) {
 		if (domain instanceof RegExp) {
-			if (domains[i].source  instanceof RegExp
+			if (domains[i].source	instanceof RegExp
 				&& domains[i].source.source === domain.source
 				&& (!ip || ip === domains[i].ip)) {
 
