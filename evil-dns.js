@@ -80,7 +80,7 @@ function remove(domain, ip) {
 
 	for (i = 0; i < domains.length; i++) {
 		if (domain instanceof RegExp) {
-			if (domains[i].source	instanceof RegExp
+			if (domains[i].source  instanceof RegExp
 				&& domains[i].source.source === domain.source
 				&& (!ip || ip === domains[i].ip)) {
 
